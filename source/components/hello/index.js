@@ -4,9 +4,16 @@ export default React => {
     string, shape, func
   } = React.PropTypes;
 
-  const hello = ({ helloClass, subject = 'World', actions: { setMode } }) => {
+  const hello = ({
+    helloClass,
+    subject = 'World',
+    actions: {setMode}
+  }) => {
     return (
-      <p className={ helloClass } onClick={ () => setMode('edit') }>Hello, { subject }!</p>
+      <p className={ helloClass }
+         onClick={ () => setMode('edit') }>
+        Hello, { subject }!
+      </p>
     );
   };
 

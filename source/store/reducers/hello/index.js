@@ -1,17 +1,15 @@
 const assign = Object.assign;
 
-export default (
-    state = { mode: 'display', subject: 'World' }, { mode, subject, type } = {}
-  ) => {
+let DEFAULT_STATE = {
+  counter: 0
+};
+
+export default (state = DEFAULT_STATE, {type} = {}) => {
 
   switch (type) {
-    case 'SET_MODE':
+    case 'INCREMENT_COUNTER':
       return assign({}, state, {
-        mode
-      });
-    case 'SET_SUBJECT':
-      return assign({}, state, {
-        subject
+        counter: state.counter + 1
       });
     default:
       return state;
