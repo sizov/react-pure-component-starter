@@ -3,7 +3,6 @@ import {createStore} from 'redux';
 import {render} from 'react-dom';
 import React from 'react'
 
-
 import hello from 'store/reducers/hello';
 
 const root = document.getElementById('root');
