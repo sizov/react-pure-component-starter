@@ -1,23 +1,23 @@
-import Counter from 'components/presentational/counter';
+import Bar from '../components/counter/Bar';
 import React from 'react';
 import {connect} from 'react-redux';
 
-const getIncrementCounterAction = () => ({
-  type: 'INCREMENT_COUNTER'
+const getTiggleBarAction = () => ({
+  type: 'TOGGLE_BAR'
 });
 
 
 const mapStateToProps = (state) => ({
-  counter: state.counter
+  enabled: state.bar.enabled //TODO: use state slice
 });
 
 const mapDispatchToProps = function (dispatch) {
   return {
-    increment: () => dispatch(getIncrementCounterAction())
+    toggle: () => dispatch(getTiggleBarAction())
   }
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Counter)
+)(Bar)
