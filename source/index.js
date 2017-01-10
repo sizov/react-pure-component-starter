@@ -18,6 +18,5 @@ render(
 );
 
 //TODO: write encapsulation example
-//TODO: solve all counter examples from article - solving
-// redux problems in 150 loc
+//TODO: solve all counter examples from article "solving redux problems in 150 loc"
 //TODO: solve server-side network requests http://redux.js.org/docs/advanced/
