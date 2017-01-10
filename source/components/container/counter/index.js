@@ -1,12 +1,23 @@
 import Counter from 'components/presentational/counter';
 import React from 'react';
+import {connect} from 'react-redux';
 
-const incrementCounter = (store) => store.dispatch({type: 'INCREMENT_COUNTER'});
+const getIncrementCounterAction = () => ({
+  type: 'INCREMENT_COUNTER'
+});
 
-export default (props) => {
 
-  return <Counter
-    counter={props.store.getState().counter}
-    increment={() => incrementCounter(props.store)}/>
+const mapStateToProps = (state) => ({
+  counter: state.counter
+});
 
+const mapDispatchToProps = function (dispatch) {
+  return {
+    increment: () => dispatch(getIncrementCounterAction())
+  }
 };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter)
