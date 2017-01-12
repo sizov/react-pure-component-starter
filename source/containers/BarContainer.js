@@ -17,11 +17,9 @@ import {connect} from 'react-redux';
 //FIXME: pass state as a properties to omit componentns
 //FIXME: getting access to the WHOLE state, give them just a slice
 //FIXME: connect(){MyComponent} will get access to .dispatch in MyCOmponent as a prop
-const mapStateToProps = (state) => {
-  return {
-    ...state.bar
-  }
-};
+const mapStateToProps = (state) => ({
+  ...state.bar
+});
 
 export default connect(
   mapStateToProps

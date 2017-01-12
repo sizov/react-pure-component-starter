@@ -1,21 +1,10 @@
 import barReducer from '../../components/bar/reducer';
+import counterReducer from '../../components/counter/reducer';
 
 const assign = Object.assign;
 
-const DEFAULT_COUNTER_STATE = 7;
 const DEFAULT_FOO_STATE = {
   enabled: true
-};
-
-const counterReducer = (state = DEFAULT_COUNTER_STATE, {type} = {}) => {
-
-  switch (type) {
-    case 'INCREMENT_COUNTER':
-      return state + 1;
-    default:
-      return state;
-  }
-
 };
 
 const fooReducer = (state = DEFAULT_FOO_STATE, {type} = {}) => {

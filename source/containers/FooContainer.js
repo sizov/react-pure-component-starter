@@ -1,4 +1,4 @@
-import Foo from '../components/counter/Foo';
+import Foo from '../components/foo/Foo';
 import React from 'react';
 import {connect} from 'react-redux';
 

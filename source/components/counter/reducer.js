@@ -1,14 +1,12 @@
 import actions from './actions';
 import DEFAULT_STATE from './defaultState';
 
-const toggleBarReduce = (state) => (
-  Object.assign({}, state, {
-    enabled: !state.enabled
-  })
+const incrementBarReduce = (state) => (
+  state + 1
 );
 
 const reduceMap = {
-  [actions.TOGGLE_BAR]: toggleBarReduce
+  [actions.INCREMENT]: incrementBarReduce
 };
 
 export default (state = DEFAULT_STATE, {type} = {}) => {
