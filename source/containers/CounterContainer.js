@@ -10,7 +10,7 @@ const getIncrementCounterAction = () => ({
 
 
 const mapStateToProps = (state) => ({
-  counter: state
+  counter: state.counter
 });
 
 const mapDispatchToProps = function (dispatch) {

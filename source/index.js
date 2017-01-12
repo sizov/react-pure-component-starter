@@ -20,7 +20,7 @@ store.subscribe(function () {
 render(
   <Provider store={store}>
     <div>
-      {/*<CounterContainer/>*/}
+      <CounterContainer/>
       <FooContainer/>
       <BarContainer/>
     </div>
