@@ -15,6 +15,8 @@ store.subscribe(function () {
   console.log(store.getState());
 });
 
+//TODO: big question: what is reusable COMPONENT??? is it view&reducer? is it redux container?
+
 render(
   <Provider store={store}>
     <div>

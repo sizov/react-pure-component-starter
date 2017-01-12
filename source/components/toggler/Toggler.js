@@ -4,9 +4,9 @@ export default (props) => {
 
   return <div>
     <button onClick={props.toggle}>
-      Toggle Bar
+      Toggle {props.name}
     </button>
-    <span>Bar is: {props.enabled ? 'enabled' : 'disabled'}</span>
+    <span>{props.name} is: {props.enabled ? 'enabled' : 'disabled'}</span>
   </div>
 
 };
