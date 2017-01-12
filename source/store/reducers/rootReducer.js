@@ -1,4 +1,4 @@
-import barReducer from '../../components/bar/barReducer';
+import barReducer from '../../components/bar/reducer';
 
 const assign = Object.assign;
 

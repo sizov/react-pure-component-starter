@@ -1,4 +1,4 @@
-import barActions from './barActions';
+import barActions from './actions';
 
 export const getToggleBarAction = () => ({
   type: barActions.TOGGLE_BAR
