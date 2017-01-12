@@ -2,10 +2,6 @@ import Bar from '../components/counter/Bar';
 import React from 'react';
 import {connect} from 'react-redux';
 
-const getTiggleBarAction = () => ({
-  type: 'TOGGLE_BAR'
-});
-
 //TODO: This style (redux connect) VS passing props downstream: redux connect has access to the whole state
 //TODO: which is really bad for encapsulation reasons.
 //TODO: research doing it just by passing required part of the state form store?
@@ -23,17 +19,10 @@ const getTiggleBarAction = () => ({
 //FIXME: connect(){MyComponent} will get access to .dispatch in MyCOmponent as a prop
 const mapStateToProps = (state) => {
   return {
-    enabled: state.bar.enabled
-  }
-};
-
-const mapDispatchToProps = function (dispatch) {
-  return {
-    toggle: () => dispatch(getTiggleBarAction())
+    ...state.bar
   }
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Bar)
