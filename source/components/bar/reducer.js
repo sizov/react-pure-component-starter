@@ -11,7 +11,7 @@ const reduceMap = {
   [barActions.TOGGLE_BAR]: toggleBarReduce
 };
 
-export default (state = DEFAULT_BAR_STATE, {actionType} = {}) => {
-  const reduce = reduceMap[actionType];
+export default (state = DEFAULT_BAR_STATE, {type} = {}) => {
+  const reduce = reduceMap[type];
   return reduce ? reduce(state) : state;
 };
