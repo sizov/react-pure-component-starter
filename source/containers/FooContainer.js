@@ -6,8 +6,9 @@ const getToggleFooAction = () => ({
   type: 'TOGGLE_FOO'
 });
 
+//fixme: connect passes all state, not small slice!!
 const mapStateToProps = (state) => ({
-  enabled: state.foo.enabled //TODO: use state slice
+  enabled: state.foo.enabled
 });
 
 const mapDispatchToProps = function (dispatch) {

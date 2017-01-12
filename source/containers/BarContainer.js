@@ -6,10 +6,17 @@ const getTiggleBarAction = () => ({
   type: 'TOGGLE_BAR'
 });
 
+//TODO: This style (redux connect) VS passing props downstream: redux connect has access to the whole state
+//TODO: which is really bad for encapsulation reasons.
+//TODO: research doing it just by passing required part of the state form store?
 
-const mapStateToProps = (state) => ({
-  enabled: state.bar.enabled //TODO: use state slice
-});
+//fixme: connect passes all state, not small slice!!
+//todo: probably the selector should be used here
+const mapStateToProps = (state) => {
+  return {
+    enabled: state.bar.enabled
+  }
+};
 
 const mapDispatchToProps = function (dispatch) {
   return {

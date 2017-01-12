@@ -6,9 +6,11 @@ const getIncrementCounterAction = () => ({
   type: 'INCREMENT_COUNTER'
 });
 
+//fixme move to counter component foldre - i's encapsulated
+
 
 const mapStateToProps = (state) => ({
-  counter: state.counter
+  counter: state
 });
 
 const mapDispatchToProps = function (dispatch) {

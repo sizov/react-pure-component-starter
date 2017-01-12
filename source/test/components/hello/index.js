@@ -3,15 +3,15 @@ import reactDom from 'react-dom/server';
 import test from 'tape';
 import dom from 'cheerio';
 
-import hello from 'components/hello';
-import createActions from 'test-fixtures/components/hello/create-actions';
+import hello from 'components/rootReducer';
+import createActions from 'test-fixtures/components/rootReducer/create-actions';
 
 const Hello = hello(React);
 const render = reactDom.renderToStaticMarkup;
 
 test('Hello', nest => {
   nest.test('...with no parameters', assert => {
-    const msg = 'should render our hello greeting!';
+    const msg = 'should render our rootReducer greeting!';
 
     const text = '<p>Hello, World!</p>';
     const re = new RegExp(text, 'g');

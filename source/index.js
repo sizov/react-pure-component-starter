@@ -6,11 +6,11 @@ import {Provider} from 'react-redux'
 import CounterContainer from 'containers/CounterContainer';
 import FooContainer from 'containers/FooContainer';
 import BarContainer from 'containers/BarContainer';
-import hello from 'store/reducers/hello';
+import rootReducer from 'store/reducers/rootReducer';
 
 const root = document.getElementById('root');
 
-const store = createStore(hello);
+const store = createStore(rootReducer);
 store.subscribe(function () {
   console.log(store.getState());
 });
@@ -18,7 +18,7 @@ store.subscribe(function () {
 render(
   <Provider store={store}>
     <div>
-      <CounterContainer/>
+      {/*<CounterContainer/>*/}
       <FooContainer/>
       <BarContainer/>
     </div>

@@ -1,7 +1,7 @@
 import test from 'tape';
 import deepFreeze from 'deep-freeze';
 
-import hello from 'store/reducers/hello';
+import hello from 'store/reducers/rootReducer';
 
 test('SET_MODE', nest => {
   nest.test('...initial', assert => {

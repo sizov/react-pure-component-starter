@@ -4,7 +4,7 @@ import test from 'tape';
 import dom from 'cheerio';
 
 import createApp from 'App.js';
-import createActions from 'test-fixtures/components/hello/create-actions';
+import createActions from 'test-fixtures/components/rootReducer/create-actions';
 
 const render = reactDom.renderToStaticMarkup;
 const App = createApp(React);
@@ -14,7 +14,7 @@ test('Hello', assert => {
 
   const props = {
     foo: 'foo',
-    helloClass: 'hello',
+    helloClass: 'rootReducer',
     titleClass: 'title',
     title: 'Yay!',
     actions: createActions()
