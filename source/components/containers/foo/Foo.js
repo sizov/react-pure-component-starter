@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Toggler from '../../presentational/toggler/Toggler';
 import {getToggleFooAction} from './actionCreators';
 
-const Bar = (props) => (
+const Foo = (props) => (
   <div style={{padding: '5px', margin: '0 auto', border: 'solid'}}>
     <Toggler
       name="Foo"
@@ -13,4 +13,4 @@ const Bar = (props) => (
   </div>
 );
 
-export default connect()(Bar)
+export default connect()(Foo);

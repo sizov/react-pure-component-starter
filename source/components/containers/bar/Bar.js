@@ -16,4 +16,4 @@ const Bar = (props) => (
   </div>
 );
 
-export default connect()(Bar)
+export default connect()(Bar);
