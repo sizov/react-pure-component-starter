@@ -1,12 +1,16 @@
-import React from 'react'
+import React from 'react';
+import {connect} from 'react-redux';
 
-export default (props) => (
+import Toggler from '../../presentational/toggler/Toggler';
+import {getToggleFooAction} from './actionCreators';
 
+const Bar = (props) => (
   <div style={{padding: '5px', margin: '0 auto', border: 'solid'}}>
-    <button onClick={props.toggle}>
-      Toggle Foo
-    </button>
-    <span>Foo is: {props.enabled ? 'enabled' : 'disabled'}</span>
+    <Toggler
+      name="Foo"
+      enabled={props.enabled}
+      toggle={() => props.dispatch(getToggleFooAction())}/>
   </div>
-
 );
+
+export default connect()(Bar)

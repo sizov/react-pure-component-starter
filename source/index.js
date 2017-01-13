@@ -21,7 +21,7 @@ render(
   <Provider store={store}>
     <div>
       <CounterContainer/>
-      {/*<FooContainer/>*/}
+      <FooContainer/>
       <BarContainer/>
     </div>
   </Provider>,
