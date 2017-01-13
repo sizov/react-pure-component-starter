@@ -1,4 +1,4 @@
-import Bar from '../components/bar/Bar';
+import Bar from './bar/Bar';
 import React from 'react';
 import {connect} from 'react-redux';
 

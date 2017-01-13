@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import Toggler from '../toggler/Toggler';
+import Toggler from '../../presentational/toggler/Toggler';
+import BarCounter from '../bar-counter/BarCounter';
 import {getToggleBarAction} from './actionCreators';
 
 const Bar = (props) => (
@@ -10,6 +11,8 @@ const Bar = (props) => (
       name="Barrr"
       enabled={props.enabled}
       toggle={() => props.dispatch(getToggleBarAction())}/>
+    <BarCounter
+      counter={props.counter}/>
   </div>
 );
 

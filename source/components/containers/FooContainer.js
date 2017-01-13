@@ -1,4 +1,4 @@
-import Foo from '../components/foo/Foo';
+import Foo from './foo/Foo';
 import React from 'react';
 import {connect} from 'react-redux';
 

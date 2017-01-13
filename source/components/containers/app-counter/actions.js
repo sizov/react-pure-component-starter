@@ -1,0 +1,3 @@
+export default {
+  APP_LEVEL_INCREMENT: 'APP_LEVEL_INCREMENT'
+};

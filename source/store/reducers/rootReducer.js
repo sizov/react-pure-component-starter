@@ -1,5 +1,5 @@
-import barReducer from '../../components/bar/reducer';
-import counterReducer from '../../components/counter/reducer';
+import barReducer from '../../components/containers/bar/reducer';
+import counterReducer from '../../components/containers/app-counter/reducer';
 
 const assign = Object.assign;
 

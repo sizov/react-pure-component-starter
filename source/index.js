@@ -3,9 +3,9 @@ import {render} from 'react-dom';
 import React from 'react'
 import {Provider} from 'react-redux'
 
-import CounterContainer from 'containers/CounterContainer';
-import FooContainer from 'containers/FooContainer';
-import BarContainer from 'containers/BarContainer';
+import CounterContainer from 'components/containers/CounterContainer';
+import FooContainer from 'components/containers/FooContainer';
+import BarContainer from 'components/containers/BarContainer';
 import rootReducer from 'store/reducers/rootReducer';
 
 const root = document.getElementById('root');
@@ -21,7 +21,7 @@ render(
   <Provider store={store}>
     <div>
       <CounterContainer/>
-      <FooContainer/>
+      {/*<FooContainer/>*/}
       <BarContainer/>
     </div>
   </Provider>,
@@ -29,5 +29,5 @@ render(
 );
 
 //TODO: write encapsulation example
-//TODO: solve all counter examples from article "solving redux problems in 150 loc"
+//TODO: solve all app-counter examples from article "solving redux problems in 150 loc"
 //TODO: solve server-side network requests http://redux.js.org/docs/advanced/

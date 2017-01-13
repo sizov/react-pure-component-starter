@@ -1,4 +1,4 @@
-import Counter from '../components/counter/Counter';
+import AppCounter from './app-counter/AppCounter';
 import React from 'react';
 import {connect} from 'react-redux';
 
@@ -8,4 +8,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps
-)(Counter)
+)(AppCounter)
+

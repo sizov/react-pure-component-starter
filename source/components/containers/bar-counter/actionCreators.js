@@ -1,5 +1,5 @@
 import actions from './actions';
 
 export const getIncrementAction = () => ({
-  type: actions.INCREMENT
+  type: actions.BAR_INCREMENT
 });
