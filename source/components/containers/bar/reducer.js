@@ -14,17 +14,11 @@ const reduceMap = {
 };
 
 export default (state = DEFAULT_STATE, {type} = {}) => {
-  const reduce = reduceMap[type];
-
-  if (reduce) {
-    return {
-      ...reduce(state, type),
-      counter: barCounterReducer(state.counter, {type})
-    };
-  }
+  let reduceFn = reduceMap[type];
+  const reducedState = reduceFn ? reduceFn(state, type) : state;
 
   return {
-    ...state,
+    ...reducedState,
     counter: barCounterReducer(state.counter, {type})
   };
 };
