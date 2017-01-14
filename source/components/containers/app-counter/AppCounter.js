@@ -4,10 +4,10 @@ import {connect} from 'react-redux';
 import Counter from '../../presentational/counter/Counter';
 import {getIncrementAction} from './actionCreators'
 
-const AppCounter = (props) => (
+const AppCounter = ({counter, dispatch}) => (
   <Counter
-    counter={props.counter}
-    increment={() => props.dispatch(getIncrementAction())}/>
+    counter={counter}
+    increment={() => dispatch(getIncrementAction())}/>
 );
 
 export default connect()(AppCounter);

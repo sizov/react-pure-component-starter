@@ -4,12 +4,12 @@ import {connect} from 'react-redux';
 import Toggler from '../../presentational/toggler/Toggler';
 import {getToggleFooAction} from './actionCreators';
 
-const Foo = (props) => (
+const Foo = ({enabled, dispatch}) => (
   <div style={{padding: '5px', margin: '0 auto', border: 'solid'}}>
     <Toggler
       name="Foo"
-      enabled={props.enabled}
-      toggle={() => props.dispatch(getToggleFooAction())}/>
+      enabled={enabled}
+      toggle={() => dispatch(getToggleFooAction())}/>
   </div>
 );
 
