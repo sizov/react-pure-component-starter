@@ -10,7 +10,7 @@ const toggleBarReduce = (state) => (
   }
 );
 
-const reduceMap = {
+const barReduceMap = {
   [actions.TOGGLE_BAR]: toggleBarReduce,
 };
 
@@ -22,11 +22,13 @@ export const barCounterOnlyIncrementReduce = (state) => (
 );
 
 export default (state = DEFAULT_STATE, {type} = {}) => {
-  let reduceFn = reduceMap[type];
-  const reducedState = reduceFn ? reduceFn(state, type) : state;
+  const barReduceFn = barReduceMap[type];
+  if (barReduceFn) {
+    return Object.assign({}, state, barReduceFn(state));
+  }
 
   return {
-    ...reducedState,
+    ...state,
     counter: barCounterReducer(state.counter, {type})
   };
 };
