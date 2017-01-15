@@ -1,3 +1,26 @@
+# From Vlad
+- what is reusable component
+    - it is not clear what is reusable component:
+    - is it just a presentational component     
+    - but then what to do with things like counter
+    which as component include the way how it updates 
+    the state. It should be able to reuse it too
+    - but if you include classic reducer (that has actions
+    in it) into a component's blackbox (even just a sliced
+     reducer that knows how to edit just part of its state)
+      then you hardcode the actions which people will use in 
+        their project. This makes components unusable because
+        your internal action names might collide with other
+         project actrions.
+    - in my view actions should NOT be a part of the Redux/React
+    component blackbox. Components should ship with a set of 
+    reducing functions which decide how the state is changing
+    for certain actions. And glue-ing these state reductions 
+    should be up to a user of these components. Read more about 
+    handling one action in multiple places here: http://www.code-experience.com/problems-with-flux/#reducersdonotsolvetheproblems
+    
+
+
 # React Pure Component Starter
 [![Circle CI](https://circleci.com/gh/ericelliott/react-pure-component-starter.svg?style=svg)](https://circleci.com/gh/ericelliott/react-pure-component-starter)
 
@@ -23,12 +46,12 @@ npm install
 As of this writing:
 
 **Cloud9 (c9.io)**
-HOST='0.0.0.0' 
+HOST='0.0.0.0'
 PORT=8080
 
 **Nitrous.io**
 HOST='0.0.0.0'
-PORT=3000 
+PORT=3000
 
 The environment variables can be set locally in bash terminal using *export* (e.g., export PORT=8080).)
 
