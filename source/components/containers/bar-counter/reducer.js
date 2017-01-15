@@ -1,6 +1,6 @@
 import actions from './actions';
 import DEFAULT_STATE from './defaultState';
-import {counterIncrementReduce} from '../../reduceFunctions/counter/counter-reduce-functions';
+import {counterIncrementReduce} from '../../presentational/counter/counter-reducing-functions';
 
 const reduceMap = {
   [actions.BAR_INCREMENT]: counterIncrementReduce
