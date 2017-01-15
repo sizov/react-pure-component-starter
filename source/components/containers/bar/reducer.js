@@ -1,17 +1,18 @@
 import actions from './actions';
 import DEFAULT_STATE from './defaultState';
 import {barCounterIncrementReduce} from '../bar-counter/reducer';
+import {toggle} from '../../presentational/toggler/reducing-functions';
 import barCounterReducer from '../bar-counter/reducer';
 
-const toggleBarReduce = (state) => (
+const toggleBar = (state) => (
   {
     ...state,
-    enabled: !state.enabled
+    enabled: toggle(state.enabled)
   }
 );
 
 const barReduceMap = {
-  [actions.TOGGLE_BAR]: toggleBarReduce,
+  [actions.TOGGLE_BAR]: toggleBar,
 };
 
 export const barCounterOnlyIncrementReduce = (state) => (
@@ -24,7 +25,7 @@ export const barCounterOnlyIncrementReduce = (state) => (
 export default (state = DEFAULT_STATE, {type} = {}) => {
   const barReduceFn = barReduceMap[type];
   if (barReduceFn) {
-    return Object.assign({}, state, barReduceFn(state));
+    return barReduceFn(state);
   }
 
   return {

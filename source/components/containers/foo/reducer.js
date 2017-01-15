@@ -1,23 +1,24 @@
 import actions from './actions';
 import DEFAULT_STATE from './defaultState';
+import {toggle} from '../../presentational/toggler/reducing-functions';
 
-const toggleFooReduce = (state) => (
+
+const toggleFoo = (state) => (
   {
-    ...state,
-    enabled: !state.enabled
+    enabled: toggle(state.enabled)
   }
 );
 
-//TODO: reducer for toggler should be reused
-const reduceMap = {
-  [actions.TOGGLE_FOO]: toggleFooReduce,
+const fooReduceMap = {
+  [actions.TOGGLE_FOO]: toggleFoo
 };
 
 export default (state = DEFAULT_STATE, {type} = {}) => {
-  let reduceFn = reduceMap[type];
-  if (!reduceFn) {
-    return state;
+  const fooReduceFn = fooReduceMap[type];
+  if (fooReduceFn) {
+    console.log('fooReduceFn');
+    return fooReduceFn(state);
   }
 
-  return reduceFn(state);
+  return state;
 };

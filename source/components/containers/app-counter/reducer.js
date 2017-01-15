@@ -1,9 +1,9 @@
 import actions from './actions';
 import DEFAULT_STATE from './defaultState';
-import {counterIncrementReduce} from '../../presentational/counter/counter-reducing-functions';
+import {counterIncrement} from '../../presentational/counter/reducing-functions';
 
 const reduceMap = {
-  [actions.APP_LEVEL_INCREMENT]: counterIncrementReduce
+  [actions.APP_LEVEL_INCREMENT]: counterIncrement
 };
 
 export default (state = DEFAULT_STATE, {type} = {}) => {
