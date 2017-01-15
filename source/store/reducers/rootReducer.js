@@ -18,8 +18,6 @@ const DEFAULT_STATE = {
 };
 
 export default (state = DEFAULT_STATE, action) => {
-  console.log(action);
-
   if (action.type === fooActions.TOGGLE_FOO) {
     return {
       counter: state.counter,
