@@ -36,7 +36,7 @@ export default (state = DEFAULT_STATE, action) => {
 
   if (action.type === barCounterActions.BAR_INCREMENT) {
     return {
-      counter: appCounterReducers.counterIncrement(state.counter),
+      counter: state.counter,
       foo: state.foo,
       bar: barReducers.barCounterIncrement(state.bar)
     };
