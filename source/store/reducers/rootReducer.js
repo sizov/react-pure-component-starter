@@ -18,39 +18,37 @@ const DEFAULT_STATE = {
 };
 
 export default (state = DEFAULT_STATE, action) => {
-  const counterState = state.counter;
-  const fooState = state.foo;
-  const barState = state.bar;
+  console.log(action);
 
   if (action.type === fooActions.TOGGLE_FOO) {
     return {
-      counter: counterState,
-      foo: fooReducers.fooToggle(fooState),
-      bar: barState
+      counter: state.counter,
+      foo: fooReducers.fooToggle(state.foo),
+      bar: state.bar
     };
   }
 
   if (action.type === barActions.TOGGLE_BAR) {
     return {
-      counter: counterState,
-      foo: fooState,
+      counter: state.counter,
+      foo: state.foo,
       bar: barReducers.barToggle(state.bar)
     };
   }
 
-  if (action.type === appCounterActions.BAR_INCREMENT) {
+  if (action.type === barCounterActions.BAR_INCREMENT) {
     return {
-      counter: counterState,
-      foo: fooState,
+      counter: state.counter,
+      foo: state.foo,
       bar: barReducers.barCounterIncrement(state.bar)
     };
   }
 
-  if (action.type === barCounterActions.APP_INCREMENT) {
+  if (action.type === appCounterActions.APP_INCREMENT) {
     return {
-      counter: appCounterReducers.counterIncrement(counterState),
-      foo: fooState,
-      bar: barState
+      counter: appCounterReducers.counterIncrement(state.counter),
+      foo: state.foo,
+      bar: state.bar
     };
   }
 
