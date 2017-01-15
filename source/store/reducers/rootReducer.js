@@ -1,25 +1,59 @@
-import barReducer from '../../components/containers/bar/reducer';
-import {barCounterOnlyIncrementReduce} from '../../components/containers/bar/reducer';
-import fooReducer from '../../components/containers/foo/reducer';
-import appCounterReducer from '../../components/containers/app-counter/reducer';
-import fooActions from '../../components/containers/foo/actions';
+import BAR_DEFAULT_STATE from '../../components/containers/bar/defaultState';
+import FOO_DEFAULT_STATE from '../../components/containers/foo/defaultState';
+import APP_COUNTER_DEFAULT_STATE from '../../components/containers/app-counter/defaultState';
 
-export default (state = {}, action) => {
-  const counterState = appCounterReducer(state.counter, action);
-  const fooState = fooReducer(state.foo, action);
+import * as fooReducers from '../../components/containers/foo/reducers';
+import * as barReducers from '../../components/containers/bar/reducers';
+import * as appCounterReducers from '../../components/containers/app-counter/reducers';
+
+import fooActions from '../../components/containers/foo/actions';
+import barActions from '../../components/containers/bar/actions';
+import barCounterActions from '../../components/containers/bar-counter/actions';
+import appCounterActions from '../../components/containers/app-counter/actions';
+
+const DEFAULT_STATE = {
+  counter: APP_COUNTER_DEFAULT_STATE,
+  bar: BAR_DEFAULT_STATE,
+  foo: FOO_DEFAULT_STATE
+};
+
+export default (state = DEFAULT_STATE, action) => {
+  const counterState = state.counter;
+  const fooState = state.foo;
+  const barState = state.bar;
 
   if (action.type === fooActions.TOGGLE_FOO) {
     return {
       counter: counterState,
-      foo: fooState,
-      bar: barCounterOnlyIncrementReduce(state.bar)
+      foo: fooReducers.fooToggle(fooState),
+      bar: barState
     };
   }
 
-  return {
-    counter: counterState,
-    foo: fooState,
-    bar: barReducer(state.bar, action)
-  };
+  if (action.type === barActions.TOGGLE_BAR) {
+    return {
+      counter: counterState,
+      foo: fooState,
+      bar: barReducers.barToggle(state.bar)
+    };
+  }
+
+  if (action.type === appCounterActions.BAR_INCREMENT) {
+    return {
+      counter: counterState,
+      foo: fooState,
+      bar: barReducers.barCounterIncrement(state.bar)
+    };
+  }
+
+  if (action.type === barCounterActions.APP_INCREMENT) {
+    return {
+      counter: appCounterReducers.counterIncrement(counterState),
+      foo: fooState,
+      bar: barState
+    };
+  }
+
+  return state;
 };
 
