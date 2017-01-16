@@ -1,4 +1,4 @@
-import {counterIncrement} from '../bar-counter/reducers';
+import {counterIncrement} from '../barCounter/reducers';
 import {toggle} from '../../presentational/toggler/reducers';
 
 export const barCounterIncrement = (state) => ({

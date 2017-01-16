@@ -1,12 +1,12 @@
-import AppCounter from './appCounter/AppCounter';
 import React from 'react';
 import {connect} from 'react-redux';
 
+import CounterOfCounters from './counterOfCounters/CounterOfCounters';
+
 const mapStateToProps = (state) => ({
-  counter: state.counter
+  amount: state.counterOfCounters
 });
 
 export default connect(
   mapStateToProps
-)(AppCounter)
-
+)(CounterOfCounters)

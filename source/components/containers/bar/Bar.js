@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Toggler from '../../presentational/toggler/Toggler';
-import BarCounter from '../bar-counter/BarCounter';
+import BarCounter from '../barCounter/BarCounter';
 import {getToggleBarAction} from './actionCreators';
 
 const Bar = ({enabled, dispatch, counter}) => (

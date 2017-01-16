@@ -1,4 +1,4 @@
-import DEFAULT_BAR_COUNTER from '../bar-counter/defaultState';
+import DEFAULT_BAR_COUNTER from '../barCounter/defaultState';
 
 export default {
   enabled: true,

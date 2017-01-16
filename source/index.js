@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import React from 'react'
 import {Provider} from 'react-redux'
 
+import CounterOfCountersContainer from 'components/containers/CounterOfCountersContainer';
 import CounterContainer from 'components/containers/CounterContainer';
 import FooContainer from 'components/containers/FooContainer';
 import BarContainer from 'components/containers/BarContainer';
@@ -20,6 +21,7 @@ store.subscribe(function () {
 render(
   <Provider store={store}>
     <div>
+      <CounterOfCountersContainer/>
       <CounterContainer/>
       <FooContainer/>
       <BarContainer/>
@@ -29,5 +31,5 @@ render(
 );
 
 //TODO: write encapsulation example
-//TODO: solve all app-counter examples from article "solving redux problems in 150 loc"
+//TODO: solve all appCounter examples from article "solving redux problems in 150 loc"
 //TODO: solve server-side network requests http://redux.js.org/docs/advanced/
