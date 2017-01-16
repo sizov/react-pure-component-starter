@@ -23,8 +23,7 @@ const DEFAULT_STATE = {
 export default (state = DEFAULT_STATE, action) => {
   if (action.type === fooActions.TOGGLE_FOO) {
     return {
-      counterOfCounters: state.counterOfCounters,
-      counter: state.counter,
+      ...state,
       foo: fooReducers.fooToggle(state.foo),
       bar: barReducers.barCounterIncrement(state.bar)
     };
@@ -32,28 +31,25 @@ export default (state = DEFAULT_STATE, action) => {
 
   if (action.type === barActions.TOGGLE_BAR) {
     return {
+      ...state,
       counterOfCounters: state.counterOfCounters,
-      counter: state.counter,
-      foo: state.foo,
       bar: barReducers.barToggle(state.bar)
     };
   }
 
   if (action.type === barCounterActions.BAR_INCREMENT) {
     return {
+      ...state,
       counterOfCounters: counterOfCountersReducers.counterOfCountersIncrement(state.counterOfCounters),
-      counter: state.counter,
-      foo: state.foo,
       bar: barReducers.barCounterIncrement(state.bar)
     };
   }
 
   if (action.type === appCounterActions.APP_INCREMENT) {
     return {
+      ...state,
       counterOfCounters: counterOfCountersReducers.counterOfCountersIncrement(state.counterOfCounters),
-      counter: appCounterReducers.counterIncrement(state.counter),
-      foo: state.foo,
-      bar: state.bar
+      counter: appCounterReducers.counterIncrement(state.counter)
     };
   }
 
