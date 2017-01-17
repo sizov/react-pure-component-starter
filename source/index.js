@@ -1,5 +1,6 @@
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
 import {render} from 'react-dom';
 import React from 'react'
 import {Provider} from 'react-redux'
@@ -11,15 +12,18 @@ import BarContainer from 'components/containers/BarContainer';
 import rootReducer from 'store/reducers/rootReducer';
 
 const root = document.getElementById('root');
-
+const logger = createLogger();
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk)
+  applyMiddleware(
+    thunk,
+    logger
+  )
 );
 
-store.subscribe(function () {
-  console.log(store.getState());
-});
+// store.subscribe(function () {
+//   console.log(store.getState());
+// });
 
 render(
   <Provider store={store}>
