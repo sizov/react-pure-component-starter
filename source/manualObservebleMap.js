@@ -40,9 +40,24 @@ export default function () {
     }
   );
 
+  const timeOutObservable = createObservable(
+    function (observer) {
+      ['a', 'b', 'c', 'd', 'e'].forEach(function (item) {
+        setTimeout(function () {
+          observer.next(item);
+        }, 1000);
+      });
+      // observer.done();
+    }
+  );
+
 
   arrayObservable
     .map(item => item * 2)
+    .subscribe(observer);
+
+  timeOutObservable
+    .map(item => item + '-haha')
     .subscribe(observer);
 
 

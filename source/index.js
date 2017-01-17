@@ -12,7 +12,8 @@ import BarContainer from 'components/containers/BarContainer';
 import rootReducer from 'store/reducers/rootReducer';
 
 import observerExample from './manualObservebleMap';
-observerExample();
+import manualObservableCombine from './manualObservableCombine';
+manualObservableCombine();
 
 const root = document.getElementById('root');
 const logger = createLogger();
