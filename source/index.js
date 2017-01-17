@@ -21,10 +21,6 @@ const store = createStore(
   )
 );
 
-// store.subscribe(function () {
-//   console.log(store.getState());
-// });
-
 render(
   <Provider store={store}>
     <div>
