@@ -3,11 +3,13 @@ import {connect} from 'react-redux';
 
 import Counter from '../../presentational/counter/Counter';
 import {getIncrementAction} from './actionCreators'
+import {getIncrementAsyncAction} from './actionCreators'
 
 const BarCounter = ({counter, dispatch}) => (
   <Counter
     counter={counter}
-    increment={() => dispatch(getIncrementAction())}/>
+    increment={() => dispatch(getIncrementAction())}
+    incrementAsync={() => dispatch(getIncrementAsyncAction())}/>
 );
 
 export default connect()(BarCounter);

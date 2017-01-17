@@ -1,4 +1,5 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 import {render} from 'react-dom';
 import React from 'react'
 import {Provider} from 'react-redux'
@@ -11,12 +12,14 @@ import rootReducer from 'store/reducers/rootReducer';
 
 const root = document.getElementById('root');
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+);
+
 store.subscribe(function () {
   console.log(store.getState());
 });
-
-//TODO: big question: what is reusable COMPONENT??? is it view&reducer? is it redux container?
 
 render(
   <Provider store={store}>
@@ -30,6 +33,6 @@ render(
   root
 );
 
-//TODO: write encapsulation example
+//TODO: big question: what is reusable COMPONENT??? is it view&reducer? is it redux container?
 //TODO: solve all appCounter examples from article "solving redux problems in 150 loc"
 //TODO: solve server-side network requests http://redux.js.org/docs/advanced/

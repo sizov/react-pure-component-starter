@@ -6,6 +6,9 @@ const Counter = (props) => (
     <button onClick={() => props.increment()}>
       Increment
     </button>
+    <button onClick={() => props.incrementAsync()}>
+      Increment async
+    </button>
     <span>Counter: {props.counter}</span>
   </div>
 );
