@@ -4,6 +4,7 @@ export const getIncrementAction = () => ({
   type: actions.APP_INCREMENT
 });
 
+//first async action
 export const getIncrementAsyncAction = () => {
   return function (dispatch) {
     setTimeout(function () {
