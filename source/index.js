@@ -1,5 +1,7 @@
+import 'rxjs'
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import {combineEpics, createEpicMiddleware} from 'redux-observable';
 import createLogger from 'redux-logger';
 import {render} from 'react-dom';
 import React from 'react'
@@ -11,9 +13,10 @@ import FooContainer from 'components/containers/FooContainer';
 import BarContainer from 'components/containers/BarContainer';
 import rootReducer from 'store/reducers/rootReducer';
 
-import observerExample from './manualObservebleMap';
-import manualObservableCombine from './manualObservableCombine';
-manualObservableCombine();
+//FIXME: it is really bad that we have to add epic on top level, need in component
+import {toggleUntoggleEpic} from 'components/containers/bar/barReduxObservableEpics';
+// const rootEpic = combineEpics(toggleUntoggleEpic);
+const epicMiddleware = createEpicMiddleware(toggleUntoggleEpic);
 
 const root = document.getElementById('root');
 const logger = createLogger();
@@ -21,7 +24,8 @@ const store = createStore(
   rootReducer,
   applyMiddleware(
     thunk,
-    logger
+    logger,
+    epicMiddleware
   )
 );
 
@@ -38,5 +42,9 @@ render(
 );
 
 //TODO: big question: what is reusable COMPONENT??? is it view&reducer? is it redux container?
-//TODO: solve all appCounter examples from article "solving redux problems in 150 loc"
-//TODO: solve server-side network requests http://redux.js.org/docs/advanced/
+
+
+//TODO: remove this, this is just an observable playground
+import observerExample from './manualObservebleMap';
+import manualObservableCombine from './manualObservableCombine';
+manualObservableCombine();

@@ -16,6 +16,24 @@ export default function () {
     return outPutObservable;
   }
 
+  function delay(ms) {
+    const inputObservable = this;
+
+    const outPutObservable = createObservable(function (observer) {
+      return inputObservable.subscribe({
+        next: function (data) {
+          setTimeout(function () {
+            observer.next(data)
+          }, ms);
+        },
+        done: observer.done,
+        error: observer.error
+      });
+    });
+
+    return outPutObservable;
+  }
+
   function filter(filterFn) {
     const inputObservable = this;
 
@@ -36,7 +54,8 @@ export default function () {
     return {
       subscribe: fn,
       map: map,
-      filter: filter
+      filter: filter,
+      delay: delay
     };
   }
 
@@ -59,26 +78,11 @@ export default function () {
     }
   );
 
-  const timeOutObservable = createObservable(
-    function (observer) {
-      ['a', 'b', 'c', 'd', 'e'].forEach(function (item) {
-        setTimeout(function () {
-          observer.next(item);
-        }, 1000);
-      });
-      // observer.done();
-    }
-  );
-
-
   arrayObservable
-    .filter(item => item !== 5 && item !== 1)
+    .filter(item => item !== 1)
     .map(item => item * 2)
+    .delay(500)
     .subscribe(observer);
-
-  // timeOutObservable
-  //   .map(item => item + '-haha')
-  //   .subscribe(observer);
 
 
 };
