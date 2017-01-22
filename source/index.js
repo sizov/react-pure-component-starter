@@ -8,7 +8,7 @@ import React from 'react'
 import {Provider} from 'react-redux'
 
 import CounterOfCountersContainer from 'components/containers/CounterOfCountersContainer';
-import CounterContainer from 'components/containers/CounterContainer';
+import CounterContainer from 'components/containers/AppCounterContainer';
 import FooContainer from 'components/containers/FooContainer';
 import BarContainer from 'components/containers/BarContainer';
 import rootReducer from 'store/reducers/rootReducer';

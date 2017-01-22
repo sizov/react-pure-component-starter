@@ -8,6 +8,11 @@ import * as fooReducers from '../../components/containers/foo/reducers';
 import * as barReducers from '../../components/containers/bar/reducers';
 import * as appCounterReducers from '../../components/containers/appCounter/reducers';
 
+import { barStateSelector } from '../../components/containers/bar';
+import { fooStateSelector } from '../../components/containers/foo';
+import { appCounterStateSelector } from '../../components/containers/appCounter';
+import { counterOfCountersStateSelector } from '../../components/containers/counterOfCounters';
+
 import fooActions from '../../components/containers/foo/actions';
 import barActions from '../../components/containers/bar/actions';
 import barCounterActions from '../../components/containers/barCounter/actions';
@@ -24,8 +29,8 @@ export default (state = DEFAULT_STATE, action) => {
   if (action.type === fooActions.TOGGLE_FOO) {
     return {
       ...state,
-      foo: fooReducers.fooToggle(state.foo),
-      bar: barReducers.barCounterIncrement(state.bar)
+      foo: fooReducers.fooToggle(fooStateSelector(state)),
+      bar: barReducers.barCounterIncrement(barStateSelector(state))
     };
   }
 
@@ -33,23 +38,23 @@ export default (state = DEFAULT_STATE, action) => {
     return {
       ...state,
       counterOfCounters: state.counterOfCounters,
-      bar: barReducers.barToggle(state.bar)
+      bar: barReducers.barToggle(barStateSelector(state))
     };
   }
 
   if (action.type === barCounterActions.BAR_INCREMENT) {
     return {
       ...state,
-      counterOfCounters: counterOfCountersReducers.counterOfCountersIncrement(state.counterOfCounters),
-      bar: barReducers.barCounterIncrement(state.bar)
+      counterOfCounters: counterOfCountersReducers.counterOfCountersIncrement(counterOfCountersStateSelector(state)),
+      bar: barReducers.barCounterIncrement(barStateSelector(state))
     };
   }
 
   if (action.type === appCounterActions.APP_INCREMENT) {
     return {
       ...state,
-      counterOfCounters: counterOfCountersReducers.counterOfCountersIncrement(state.counterOfCounters),
-      counter: appCounterReducers.counterIncrement(state.counter)
+      counterOfCounters: counterOfCountersReducers.counterOfCountersIncrement(counterOfCountersStateSelector(state)),
+      counter: appCounterReducers.counterIncrement(appCounterStateSelector(state))
     };
   }
 

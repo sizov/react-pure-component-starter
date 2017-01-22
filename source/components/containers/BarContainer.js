@@ -1,6 +1,7 @@
-import Bar from './bar/Bar';
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+
+import { Bar, barStateSelector } from './bar';
 
 //TODO: This style (redux connect) VS passing props downstream: redux connect has access to the whole state
 //TODO: which is really bad for encapsulation reasons.
@@ -18,7 +19,7 @@ import {connect} from 'react-redux';
 //FIXME: getting access to the WHOLE state, give them just a slice
 //FIXME: connect(){MyComponent} will get access to .dispatch in MyCOmponent as a prop
 const mapStateToProps = (state) => ({
-  ...state.bar
+  ...barStateSelector(state)
 });
 
 export default connect(

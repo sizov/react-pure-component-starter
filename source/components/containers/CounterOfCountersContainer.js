@@ -1,10 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-import CounterOfCounters from './counterOfCounters/CounterOfCounters';
+import { CounterOfCounters, counterOfCountersStateSelector } from './counterOfCounters';
 
 const mapStateToProps = (state) => ({
-  amount: state.counterOfCounters
+  amount: counterOfCountersStateSelector(state)
 });
 
 export default connect(
